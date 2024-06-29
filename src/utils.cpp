@@ -39,3 +39,27 @@ unsigned short in_cksum(unsigned short *addr, int len) {
     answer = ~sum;
     return answer;
 }
+
+
+/*
+unsigned short in_cksum(unsigned short *addr, int len) {
+    int sum = 0;
+    unsigned short *w = addr;
+    unsigned short answer = 0;
+
+    while (len > 1) {
+        sum += *w++;
+        len -= 2;
+    }
+
+    if (len == 1) {
+        *(unsigned char *)(&answer) = *(unsigned char *)w;
+        sum += answer;
+    }
+
+    sum = (sum >> 16) + (sum & 0xFFFF);
+    sum += (sum >> 16);
+    answer = ~sum;
+    return answer;
+}
+*/
